@@ -1,8 +1,8 @@
 import React from 'react'
 import './Toolbar.scss'
 
-function Toolbar() {
-  return <div id="toolbar"></div>
+function Toolbar({ children }) {
+  return <div id="toolbar">{children}</div>
 }
 
 export default Toolbar
