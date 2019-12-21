@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+#toolbar {
+  box-shadow: $light-drop-shadow;
+  height: 500px;
+  width: 70px;
+  margin: 70px 15px 0px 0px;
+  float: right;
+  border-radius: 5px;
+}
