@@ -1,5 +1,5 @@
 import React from 'react'
-import './Playground.css'
+import './Playground.scss'
 import Editor from './Components/Editor'
 
 function Playground() {

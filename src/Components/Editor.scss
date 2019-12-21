@@ -1,0 +1,14 @@
+@import '../variables.scss';
+
+#editor {
+  height: 90%;
+  height: -webkit-fill-available;
+  border: 1px solid $border;
+  border-radius: 5px;
+  padding: 50px;
+
+  &:focus {
+    outline: none;
+    box-shadow: $main-drop-shadow;
+  }
+}
