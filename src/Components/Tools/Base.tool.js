@@ -5,13 +5,19 @@ class BaseTool extends React.Component {
     super(props)
 
     this.state = {
-      editor: undefined
+      editor: undefined,
+      tool: undefined
     }
   }
 
   getEditor() {
     const editor = document.getElementById('editor')
     if (editor) this.setState({ editor })
+  }
+
+  selectTool(tool) {
+    this.props.selectTool(tool)
+    this.setState({ tool })
   }
 
   onEditorClick() {
