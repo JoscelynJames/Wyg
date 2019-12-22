@@ -3,13 +3,15 @@ import './Editor.scss'
 import Toolbar from '../Toolbar/Toolbar'
 // tools
 import TextTool from '../Tools/Text/Text.tool'
+import Editable from '../Editable/Editable'
 
 class Editor extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      selectedTool: 'text'
+      selectedTool: 'text',
+      active: false
     }
   }
 
@@ -18,16 +20,20 @@ class Editor extends React.Component {
     this.setState({ selectedTool })
   }
 
+  activateEditor(e) {
+    this.setState({ ...this.state, active: true })
+  }
+
   render() {
     return (
       <div id="editor-container">
         <Toolbar>
           <TextTool
             selectTool={tool => this.selectTool(tool)}
-            selectedTool={this.state.selectedTool}
+            parentState={this.state}
           />
         </Toolbar>
-        <div id="editor" contentEditable="true"></div>
+        <Editable activate={e => this.activateEditor(e)} />
       </div>
     )
   }

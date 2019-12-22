@@ -1,0 +1,11 @@
+@import '../../variables.scss';
+
+#editable {
+  height: -webkit-fill-available;
+  padding: 40px;
+
+  &:focus {
+    outline: none;
+    box-shadow: $main-drop-shadow;
+  }
+}
