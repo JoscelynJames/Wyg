@@ -6,30 +6,29 @@ class BaseTool extends React.Component {
 
     this.state = {
       editor: undefined,
-      tool: undefined
+      tool: undefined,
+      ...props.parentState
     }
   }
 
   getEditor() {
-    const editor = document.getElementById('editor')
-    if (editor) this.setState({ editor })
+    const editor = document.getElementById('editable')
+    if (!editor) return
+
+    this.setState({ editor })
+    editor.addEventListener('mousedown', e => this._onEditorClick(e))
   }
 
-  selectTool(tool) {
-    this.props.selectTool(tool)
-    this.setState({ tool })
+  selectTool(selectedTool) {
+    this.props.selectTool(selectedTool)
+    this.setState({ selectedTool })
   }
 
-  onEditorClick() {
-    // Do something on click here - add html element, highlight shit whatever
-  }
+  activateTool(e) {}
 
-  onDelete() {
-    // remove elements from the editor
-  }
-
-  onDrag() {
-    // one day for drag and drop
+  _onEditorClick(e) {
+    if (this.state.tool !== this.state.selectedTool) return
+    this.activateTool(e)
   }
 }
 

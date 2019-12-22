@@ -6,10 +6,21 @@ import TextIcon from '../../../assets/icons/text-tool.svg'
 class TextTool extends BaseTool {
   constructor(props) {
     super(props)
+
+    this.state = {
+      ...this.state,
+      tool: 'text',
+      active: false
+    }
+    console.log(this.state)
   }
 
   componentDidMount() {
     this.getEditor()
+  }
+
+  activateTool(e) {
+    this.setState({ ...this.state, active: true })
   }
 
   render() {
