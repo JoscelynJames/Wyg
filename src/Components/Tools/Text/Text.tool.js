@@ -1,6 +1,6 @@
 import React from 'react'
-import BaseTool from '../Base.tool'
-import Icon from '../../Common/Icon'
+import BaseTool from '../BaseTool/Base.tool'
+import Icon from '../../Common/Icon/Icon'
 import TextIcon from '../../../assets/icons/text-tool.svg'
 
 class TextTool extends BaseTool {
@@ -12,7 +12,6 @@ class TextTool extends BaseTool {
       tool: 'text',
       active: false
     }
-    console.log(this.state)
   }
 
   componentDidMount() {
