@@ -2,7 +2,7 @@ import React from 'react'
 import { SketchPicker } from 'react-color'
 import './ColorPicker.scss'
 
-class ColorPicker extends React.Component {
+class ColorPickerTool extends React.Component {
   constructor(props) {
     super(props)
     this.state = { showColorPicker: false, currentColor: '#50E3C2' }
@@ -35,4 +35,4 @@ class ColorPicker extends React.Component {
   }
 }
 
-export default ColorPicker
+export default ColorPickerTool
