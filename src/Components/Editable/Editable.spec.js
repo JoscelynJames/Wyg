@@ -1,16 +1,16 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Toolbar from './Toolbar'
+import Editable from './Editable'
 
 function setup() {
   const props = {}
-  const component = shallow(<Toolbar {...props} />)
+  const component = shallow(<Editable {...props} />)
 
   return { component, props }
 }
 
-describe('Toolbar testing suite', () => {
-  it('renders Toolbar', () => {
+describe('Editable testing suite', () => {
+  it('renders Editable', () => {
     const { component } = setup()
     expect(component).toBeDefined()
   })

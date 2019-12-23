@@ -1,16 +1,16 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Toolbar from './Toolbar'
+import Wyg from './Wyg'
 
 function setup() {
   const props = {}
-  const component = shallow(<Toolbar {...props} />)
+  const component = shallow(<Wyg {...props} />)
 
   return { component, props }
 }
 
-describe('Toolbar testing suite', () => {
-  it('renders Toolbar', () => {
+describe('Wyg App', () => {
+  it('renders Wyg', () => {
     const { component } = setup()
     expect(component).toBeDefined()
   })
