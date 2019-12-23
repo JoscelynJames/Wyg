@@ -19,7 +19,7 @@
     A useful modern JavaScript WYSIWYG built in React. 
     <br><b>- Wyg is currently under development -</b>
     <!-- Plug-and-Play or customizable to add to your app.  -->
-    <br><br><br>
+    <br><br>
 </h3>
 
 # Why wyg.js
