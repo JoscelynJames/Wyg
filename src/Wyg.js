@@ -2,7 +2,7 @@ import React from 'react'
 import './Wyg.scss'
 import Editor from './Components/Editor/Editor'
 
-function Playground() {
+function Wyg() {
   return (
     <div className="wyg">
       <Editor></Editor>
@@ -10,4 +10,4 @@ function Playground() {
   )
 }
 
-export default Playground
+export default Wyg

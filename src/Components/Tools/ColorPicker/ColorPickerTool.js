@@ -1,6 +1,6 @@
 import React from 'react'
 import { SketchPicker } from 'react-color'
-import './ColorPicker.scss'
+import './ColorPickerTool.scss'
 import withTool from '../WithTool/WithTool'
 
 class ColorPickerTool extends React.Component {

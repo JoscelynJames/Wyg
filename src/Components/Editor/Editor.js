@@ -3,8 +3,8 @@ import './Editor.scss'
 import Toolbar from '../Toolbar/Toolbar'
 import Editable from '../Editable/Editable'
 // tools
-import TextTool from '../Tools/Text/Text'
-import ColorPickerTool from '../Tools/ColorPicker/ColorPicker'
+import TextTool from '../Tools/Text/TextTool'
+import ColorPickerTool from '../Tools/ColorPicker/ColorPickerTool'
 
 class Editor extends React.Component {
   state = {
