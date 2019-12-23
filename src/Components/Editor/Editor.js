@@ -3,7 +3,7 @@ import './Editor.scss'
 import Toolbar from '../Toolbar/Toolbar'
 import Editable from '../Editable/Editable'
 // tools
-import TextTool from '../Tools/Text/Text.tool'
+import TextTool from '../Tools/Text/Text'
 
 class Editor extends React.Component {
   state = {
