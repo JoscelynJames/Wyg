@@ -13,7 +13,11 @@ class TextTool extends React.Component {
 
   render() {
     return (
-      <Icon img={TextIcon} selectTool={() => this.props.selectTool('text')} />
+      <Icon
+        img={TextIcon}
+        toolName="text"
+        selectTool={() => this.props.selectTool('text')}
+      />
     )
   }
 }
