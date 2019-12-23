@@ -1,8 +1,8 @@
 import React from 'react'
 import './Icon.scss'
 
-function Icon({ img }) {
-  return <img className="icon" src={img}></img>
+function Icon({ img, selectTool }) {
+  return <img className="icon" src={img} onClick={() => selectTool()}></img>
 }
 
 export default Icon

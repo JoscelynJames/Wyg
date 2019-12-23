@@ -17,9 +17,7 @@ class TextTool extends React.Component {
 
   render() {
     return (
-      <a onClick={() => this.props.selectTool('text')}>
-        <Icon img={TextIcon} />
-      </a>
+      <Icon img={TextIcon} selectTool={() => this.props.selectTool('text')} />
     )
   }
 }
