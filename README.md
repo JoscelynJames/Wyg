@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="300" src="./src/assets/icons/wyg-logo-with-name.png " alt="iPhone X mockup a2hs.js"/>
+  <img width="300" src="./src/assets/icons/wyg-logo-with-name.png " alt="wyg.js"/>
 </p>
 
 <!-- Add badges here - follow Monochromatic Color order https://www.colorhexa.com/50e3c2 -->
