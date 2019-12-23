@@ -7,4 +7,6 @@
   margin: 70px 15px 0px 0px;
   float: right;
   border-radius: 5px;
+  display: grid;
+  grid-template-rows: 70px auto 80px;
 }

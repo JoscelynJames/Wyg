@@ -3,7 +3,8 @@ import './Editor.scss'
 import Toolbar from '../Toolbar/Toolbar'
 import Editable from '../Editable/Editable'
 // tools
-import TextTool from '../Tools/Text/Text.tool'
+import TextTool from '../Tools/Text/TextTool'
+import ColorPickerTool from '../Tools/ColorPicker/ColorPickerTool'
 
 class Editor extends React.Component {
   state = {
@@ -29,6 +30,7 @@ class Editor extends React.Component {
     return (
       <div id="editor-container">
         <Toolbar>
+          <ColorPickerTool editor={this.state.editor} />
           <TextTool
             selectTool={tool => this.selectTool(tool)}
             selectedTool={this.state.selectedTool}
