@@ -36,13 +36,12 @@ Wyg is a fast and customizable rich text editor with a vast amount of features. 
   ### Clone the repo and run the following 2 commands
 
   > `npm install`
-  <br>
+
   > `npm start`
 
  ### Navigate to [localhost:3000](localhost:3000)
 
 
 ## Running test
----
   > `npm run test`
 
