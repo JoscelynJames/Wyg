@@ -9,4 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Runs test suite
-      run: npm run test
+      run: |
+      cd ../../src
+      npm run test
