@@ -30,7 +30,7 @@ class Editor extends React.Component {
     return (
       <div id="editor-container">
         <Toolbar>
-          <ColorPickerTool />
+          <ColorPickerTool editor={this.state.editor} />
           <TextTool
             selectTool={tool => this.selectTool(tool)}
             selectedTool={this.state.selectedTool}
