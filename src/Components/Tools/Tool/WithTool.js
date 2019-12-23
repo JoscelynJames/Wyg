@@ -1,6 +1,6 @@
 import React from 'react'
 
-function WithTool(WrappedComponent) {
+function withTool(WrappedComponent) {
   return class extends React.Component {
     state = {
       editor: undefined,
@@ -15,15 +15,17 @@ function WithTool(WrappedComponent) {
 
     addEventsToEditor() {
       this.state.editor.addEventListener('mousedown', e =>
-        this._onEditorClick(e)
+        this.onEditorClick(e)
       )
     }
 
-    activateTool(e) {}
+    activateTool() {
+      this.setState({ ...this.state, active: true })
+    }
 
-    _onEditorClick(e) {
+    onEditorClick(e) {
       if (this.state.tool !== this.state.selectedTool) return
-      this.activateTool(e)
+      this.activateTool()
     }
 
     render() {
@@ -32,4 +34,4 @@ function WithTool(WrappedComponent) {
   }
 }
 
-export default WithTool
+export default withTool

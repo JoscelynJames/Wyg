@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
-import WithTool from './WithTool'
+import withTool from './WithTool'
 
 class MockTask extends React.Component {
   render() {
@@ -11,10 +10,8 @@ class MockTask extends React.Component {
 
 function setup() {
   const props = {}
-  const MockWithTool = WithTool(MockTask)
-  const component = shallow(<MockWithTool />)
-    .first()
-    .shallow()
+  const MockWithTool = withTool(MockTask)
+  const component = shallow(<MockWithTool {...props} />)
 
   return { component, props }
 }
@@ -25,11 +22,10 @@ describe('withTool testing suite', () => {
     expect(component).toBeDefined()
   })
 
-  it('#selectTool', () => {
+  it('#activateTool', () => {
     const { component } = setup()
-    expect(component.state.selectedTool).toEqual(undefined)
-
-    component.instance().props.selectTool('color')
-    expect(component.state.selectedTool).toEqual('color')
+    expect(component.instance().state.active).toEqual(false)
+    component.instance().activateTool()
+    expect(component.instance().state.active).toEqual(true)
   })
 })

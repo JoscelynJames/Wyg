@@ -1,5 +1,5 @@
 import React from 'react'
-import WithTool from '../Tool/WithTool'
+import withTool from '../Tool/WithTool'
 import Icon from '../../Common/Icon/Icon'
 import TextIcon from '../../../assets/icons/text-tool.svg'
 
@@ -11,10 +11,6 @@ class TextTool extends React.Component {
     editor: this.props.editor
   }
 
-  activateTool(e) {
-    this.setState({ ...this.state, active: true })
-  }
-
   render() {
     return (
       <Icon img={TextIcon} selectTool={() => this.props.selectTool('text')} />
@@ -22,4 +18,4 @@ class TextTool extends React.Component {
   }
 }
 
-export default WithTool(TextTool)
+export default withTool(TextTool)
