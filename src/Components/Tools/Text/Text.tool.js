@@ -1,5 +1,5 @@
 import React from 'react'
-import withTool from '../Tool/WithTool'
+import withTool from '../WithTool/WithTool'
 import Icon from '../../Common/Icon/Icon'
 import TextIcon from '../../../assets/icons/text-tool.svg'
 
