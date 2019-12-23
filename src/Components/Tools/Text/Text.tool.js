@@ -1,21 +1,14 @@
 import React from 'react'
-import BaseTool from '../BaseTool/Base.tool'
+import WithTool from '../Tool/WithTool'
 import Icon from '../../Common/Icon/Icon'
 import TextIcon from '../../../assets/icons/text-tool.svg'
 
-class TextTool extends BaseTool {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      ...this.state,
-      tool: 'text',
-      active: false
-    }
-  }
-
-  componentDidMount() {
-    this.getEditor()
+class TextTool extends React.Component {
+  state = {
+    tool: 'text',
+    active: false,
+    selectedTool: this.props.selectedTool,
+    editor: this.props.editor
   }
 
   activateTool(e) {
@@ -24,11 +17,11 @@ class TextTool extends BaseTool {
 
   render() {
     return (
-      <a onClick={() => this.selectTool('tool')}>
+      <a onClick={() => this.props.selectTool('text')}>
         <Icon img={TextIcon} />
       </a>
     )
   }
 }
 
-export default TextTool
+export default WithTool(TextTool)
