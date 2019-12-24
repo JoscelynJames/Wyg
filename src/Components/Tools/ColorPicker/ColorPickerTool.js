@@ -1,41 +1,15 @@
 import React from 'react'
-import { SketchPicker } from 'react-color'
 import './ColorPickerTool.scss'
 import withTool from '../WithTool/WithTool'
-class ColorPickerTool extends React.Component {
-  state = {
-    showColorPicker: false,
-    currentColor: '#50E3C2'
-  }
+import ColorPickerIcon from '../../Common/Icons/ColorPickerIcon'
 
-  toggleColorPicker(newStatus) {
-    this.setState({ showColorPicker: newStatus })
-  }
-
-  handleChange(color, event) {
-    // we want to make sure that the text stays highlighted on click
-    event.preventDefault()
-    // this will change just the color of the text
-    document.execCommand('foreColor', true, color.hex)
-
-    this.setState({ currentColor: color.hex })
-  }
-
-  render() {
-    return (
-      <div id="color-picker">
-        <div
-          id="color-swatch"
-          style={{ backgroundColor: this.state.currentColor }}
-          onClick={() => this.toggleColorPicker(!this.state.showColorPicker)}
-        ></div>
-        <SketchPicker
-          color={this.state.currentColor}
-          onChange={(color, event) => this.handleChange(color, event)}
-        />
-      </div>
-    )
-  }
+function ColorPickerTool({ currentColor, selectTool }) {
+  return (
+    <ColorPickerIcon
+      fill={currentColor}
+      selectTool={e => selectTool('color', e)}
+    />
+  )
 }
 
 export default withTool(ColorPickerTool)

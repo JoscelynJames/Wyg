@@ -1,7 +1,6 @@
 import React from 'react'
 import withTool from '../WithTool/WithTool'
-import Icon from '../../Common/Icon/Icon'
-import TextIcon from '../../../assets/icons/text-tool.svg'
+import TextToolIcon from '../../Common/Icons/TextToolIcon'
 
 class TextTool extends React.Component {
   state = {
@@ -12,13 +11,7 @@ class TextTool extends React.Component {
   }
 
   render() {
-    return (
-      <Icon
-        img={TextIcon}
-        toolName="text"
-        selectTool={() => this.props.selectTool('text')}
-      />
-    )
+    return <TextToolIcon selectTool={e => this.props.selectTool('text', e)} />
   }
 }
 
