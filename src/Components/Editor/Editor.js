@@ -45,16 +45,24 @@ class Editor extends React.Component {
     this.setState({ currentColor: color.hex })
   }
 
+  formatText(property, value, event) {
+    console.log({ property, value, event })
+    event.preventDefault() // mantain the highlighted text
+    document.execCommand(property, true, value)
+  }
+
   render() {
     return (
       <div id="editor-container">
         {this.state.showColorPicker ? (
           <SketchPicker
             color={this.state.currentColor}
-            onChange={(color, event) => this.handleChange(color, event)}
+            onChange={(color, e) => this.handleChange(color, e)}
           />
         ) : null}
-        <TextMenu />
+        <TextMenu
+          onChange={(property, value, e) => this.formatText(property, value, e)}
+        />
         <Toolbar>
           <ColorPickerTool
             editor={this.state.editor}

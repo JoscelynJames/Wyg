@@ -7,13 +7,14 @@ import UnderlineIcon from '../Common/Icons/UnderlineIcon'
 import StrikethroughIcon from '../Common/Icons/StrikethroughIcon'
 
 const fonts = [
-  { value: 'Cursive	' },
-  { value: 'Fantasy	' },
-  { value: 'Helvetica	' },
-  { value: 'Monospace	' },
-  { value: 'Sans-serif	' },
-  { value: 'Serif	' },
-  { value: 'Times	' }
+  { value: 'Quicksand' },
+  { value: 'Cursive' },
+  { value: 'Fantasy' },
+  { value: 'Helvetica' },
+  { value: 'Monospace' },
+  { value: 'Sans-serif' },
+  { value: 'Serif' },
+  { value: 'Times' }
 ]
 
 const sizes = [
@@ -46,18 +47,34 @@ const sizes = [
   { value: 80 }
 ]
 
-function TextMenu() {
+function TextMenu({ onChange }) {
   return (
     <div id="text-menu">
       <div>
-        <Dropdown options={fonts} name="font" />
+        <Dropdown
+          options={fonts}
+          name="font"
+          onChange={e => onChange('fontName', e.target.value, e)}
+        />
         <Dropdown options={sizes} name="size" />
       </div>
       <div className="text-format">
-        <BoldIcon />
-        <ItalicIcon />
-        <UnderlineIcon />
-        <StrikethroughIcon />
+        <button>
+          <BoldIcon handleMouseDown={e => onChange('bold', undefined, e)} />
+        </button>
+        <button>
+          <ItalicIcon handleMouseDown={e => onChange('italic', undefined, e)} />
+        </button>
+        <button>
+          <UnderlineIcon
+            handleMouseDown={e => onChange('underline', undefined, e)}
+          />
+        </button>
+        <button>
+          <StrikethroughIcon
+            handleMouseDown={e => onChange('strikeThrough', undefined, e)}
+          />
+        </button>
       </div>
     </div>
   )
