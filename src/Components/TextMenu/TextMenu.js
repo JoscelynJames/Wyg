@@ -18,33 +18,13 @@ const fonts = [
 ]
 
 const sizes = [
-  { value: 8 },
-  { value: 9 },
-  { value: 10 },
-  { value: 11 },
-  { value: 12 },
-  { value: 14 },
-  { value: 16 },
-  { value: 18 },
-  { value: 20 },
-  { value: 22 },
-  { value: 24 },
-  { value: 26 },
-  { value: 28 },
-  { value: 30 },
-  { value: 32 },
-  { value: 34 },
-  { value: 36 },
-  { value: 38 },
-  { value: 40 },
-  { value: 45 },
-  { value: 50 },
-  { value: 55 },
-  { value: 60 },
-  { value: 65 },
-  { value: 70 },
-  { value: 75 },
-  { value: 80 }
+  { displayValue: 'Heading 1', value: '<H1>' },
+  { displayValue: 'Heading 2', value: '<H2>' },
+  { displayValue: 'Heading 3', value: '<H3>' },
+  { displayValue: 'Heading 4', value: '<H4>' },
+  { displayValue: 'Heading 5', value: '<H5>' },
+  { displayValue: 'Heading 6', value: '<H6>' },
+  { displayValue: 'Text', value: '<p>' }
 ]
 
 function TextMenu({ onChange }) {
@@ -56,21 +36,25 @@ function TextMenu({ onChange }) {
           name="font"
           onChange={e => onChange('fontName', e.target.value, e)}
         />
-        <Dropdown options={sizes} name="size" />
+        <Dropdown
+          options={sizes}
+          name="size"
+          onChange={e => onChange('formatBlock', e.target.value, e)}
+        />
       </div>
       <div className="text-format">
-        <button>
+        <button type="button" name="format-bold">
           <BoldIcon handleMouseDown={e => onChange('bold', undefined, e)} />
         </button>
-        <button>
+        <button type="button" name="format-italic">
           <ItalicIcon handleMouseDown={e => onChange('italic', undefined, e)} />
         </button>
-        <button>
+        <button type="button" name="format-underline">
           <UnderlineIcon
             handleMouseDown={e => onChange('underline', undefined, e)}
           />
         </button>
-        <button>
+        <button type="button" name="format-strikethrough">
           <StrikethroughIcon
             handleMouseDown={e => onChange('strikeThrough', undefined, e)}
           />

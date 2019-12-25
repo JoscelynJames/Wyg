@@ -6,7 +6,7 @@ function Dropdown({ options, name, style, onChange }) {
     <select name={name} style={style} onChange={e => onChange(e)}>
       {options.map(option => (
         <option key={option.value} value={option.value}>
-          {option.value}
+          {option.displayValue || option.value}
         </option>
       ))}
     </select>
