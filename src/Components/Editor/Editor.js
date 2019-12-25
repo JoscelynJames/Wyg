@@ -15,7 +15,13 @@ class Editor extends React.Component {
     active: false,
     editor: undefined,
     showColorPicker: false,
-    currentColor: '#50E3C2'
+    currentColor: '#50E3C2',
+    activeFormats: {
+      bold: false,
+      italic: false,
+      underline: false,
+      strikeThrough: false
+    }
   }
 
   selectTool(selectedTool, event) {
@@ -46,9 +52,16 @@ class Editor extends React.Component {
   }
 
   formatText(property, value, event) {
-    console.log({ property, value, event })
     event.preventDefault() // mantain the highlighted text
     document.execCommand(property, true, value)
+
+    this.setState(prevState => ({
+      ...prevState,
+      activeFormats: {
+        ...prevState.activeFormats,
+        [property]: !prevState.activeFormats[property]
+      }
+    }))
   }
 
   render() {
@@ -62,6 +75,9 @@ class Editor extends React.Component {
         ) : null}
         <TextMenu
           onChange={(property, value, e) => this.formatText(property, value, e)}
+          activeFormats={this.state.activeFormats}
+          inactiveFillColor="#000"
+          activeFillColor="#50e3c2"
         />
         <Toolbar>
           <ColorPickerTool

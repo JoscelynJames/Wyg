@@ -27,7 +27,12 @@ const sizes = [
   { displayValue: 'Text', value: '<p>' }
 ]
 
-function TextMenu({ onChange }) {
+function TextMenu({
+  onChange,
+  activeFormats,
+  activeFillColor,
+  inactiveFillColor
+}) {
   return (
     <div id="text-menu">
       <div>
@@ -43,20 +48,42 @@ function TextMenu({ onChange }) {
         />
       </div>
       <div className="text-format">
-        <button type="button" name="format-bold">
-          <BoldIcon handleMouseDown={e => onChange('bold', undefined, e)} />
-        </button>
-        <button type="button" name="format-italic">
-          <ItalicIcon handleMouseDown={e => onChange('italic', undefined, e)} />
-        </button>
-        <button type="button" name="format-underline">
-          <UnderlineIcon
-            handleMouseDown={e => onChange('underline', undefined, e)}
+        <button
+          type="button"
+          name="format-bold"
+          onMouseDown={e => onChange('bold', undefined, e)}
+        >
+          <BoldIcon
+            fill={activeFormats.bold ? activeFillColor : inactiveFillColor}
           />
         </button>
-        <button type="button" name="format-strikethrough">
+        <button
+          type="button"
+          name="format-italic"
+          onMouseDown={e => onChange('italic', undefined, e)}
+        >
+          <ItalicIcon
+            fill={activeFormats.italic ? activeFillColor : inactiveFillColor}
+          />
+        </button>
+        <button
+          type="button"
+          name="format-underline"
+          onMouseDown={e => onChange('underline', undefined, e)}
+        >
+          <UnderlineIcon
+            fill={activeFormats.underline ? activeFillColor : inactiveFillColor}
+          />
+        </button>
+        <button
+          type="button"
+          name="format-strikeThrough"
+          onMouseDown={e => onChange('strikeThrough', undefined, e)}
+        >
           <StrikethroughIcon
-            handleMouseDown={e => onChange('strikeThrough', undefined, e)}
+            fill={
+              activeFormats.strikeThrough ? activeFillColor : inactiveFillColor
+            }
           />
         </button>
       </div>
