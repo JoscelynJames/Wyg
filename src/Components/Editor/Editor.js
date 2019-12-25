@@ -21,7 +21,8 @@ class Editor extends React.Component {
       bold: false,
       italic: false,
       underline: false,
-      strikeThrough: false
+      strikeThrough: false,
+      hiliteColor: false
     }
   }
 
@@ -57,6 +58,7 @@ class Editor extends React.Component {
 
   formatText(property, value, event) {
     event.preventDefault() // mantain the highlighted text
+    if (property === 'hiliteColor') value = this.getHighlightColor()
     document.execCommand(property, true, value)
 
     this.setState(prevState => ({
@@ -66,6 +68,12 @@ class Editor extends React.Component {
         [property]: !prevState.activeFormats[property]
       }
     }))
+  }
+
+  getHighlightColor() {
+    return !this.state.activeFormats.hiliteColor
+      ? this.state.currentColor
+      : '#fff'
   }
 
   render() {
