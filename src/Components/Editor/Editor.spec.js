@@ -40,4 +40,22 @@ describe('Editor testing suite', () => {
       .selectTool('cool new tool', { preventDefault: () => {} })
     expect(component.instance().state.selectedTool).toEqual('cool new tool')
   })
+
+  it('should open text menu if text is the selected tool', () => {
+    const { component } = setup()
+    expect(component.instance().state.showTextMenu).toEqual(false)
+
+    component.instance().selectTool('text', { preventDefault: () => {} })
+    expect(component.instance().state.showTextMenu).toEqual(true)
+    expect(component.instance().state.selectedTool).toEqual('text')
+  })
+
+  it('should open the color picker if color is the selected tool', () => {
+    const { component } = setup()
+    expect(component.instance().state.showColorPicker).toEqual(false)
+
+    component.instance().selectTool('color', { preventDefault: () => {} })
+    expect(component.instance().state.showColorPicker).toEqual(true)
+    expect(component.instance().state.selectedTool).toEqual('color')
+  })
 })
