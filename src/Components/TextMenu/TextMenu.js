@@ -5,6 +5,7 @@ import BoldIcon from '../Common/Icons/BoldIcon'
 import ItalicIcon from '../Common/Icons/ItalicIcon'
 import UnderlineIcon from '../Common/Icons/UnderlineIcon'
 import StrikethroughIcon from '../Common/Icons/StrikethroughIcon'
+import HighlightTextIcon from '../Common/Icons/HighlightTextIcon'
 import fonts from '../../assets/fontFamilies'
 import sizes from '../../assets/fontSizes'
 
@@ -64,6 +65,17 @@ function TextMenu({
           <StrikethroughIcon
             fill={
               activeFormats.strikeThrough ? activeFillColor : inactiveFillColor
+            }
+          />
+        </button>
+        <button
+          type="button"
+          name="format-hiliteColor"
+          onMouseDown={e => onChange('hiliteColor', undefined, e)}
+        >
+          <HighlightTextIcon
+            fill={
+              activeFormats.hiliteColor ? activeFillColor : inactiveFillColor
             }
           />
         </button>
