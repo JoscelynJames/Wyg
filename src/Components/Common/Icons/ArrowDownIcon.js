@@ -1,9 +1,9 @@
 import React from 'react'
 
-function TextToolIcon({
-  selectTool,
+function ArrowDownIcon({
+  handleMouseDown,
   style = { margin: '10px auto' },
-  fill = '#000',
+  fill = '#fff',
   width = '24',
   className = '',
   height = '24',
@@ -18,15 +18,12 @@ function TextToolIcon({
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      onMouseDown={e => selectTool(e)}
+      onMouseDown={e => handleMouseDown(e)}
     >
-      <path fill="none" d="M0 0h24v24H0z" />
-      <path
-        fill={fill}
-        d="M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"
-      />
+      <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+      <path fill="none" d="M0 0h24v24H0V0z" />
     </svg>
   )
 }
 
-export default TextToolIcon
+export default ArrowDownIcon

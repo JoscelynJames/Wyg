@@ -1,7 +1,7 @@
 import React from 'react'
 
-function TextToolIcon({
-  selectTool,
+function AlignRightIcon({
+  handleMouseDown,
   style = { margin: '10px auto' },
   fill = '#000',
   width = '24',
@@ -18,15 +18,15 @@ function TextToolIcon({
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      onMouseDown={e => selectTool(e)}
+      onMouseDown={e => handleMouseDown(e)}
     >
-      <path fill="none" d="M0 0h24v24H0z" />
       <path
         fill={fill}
-        d="M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"
+        d="M3 21h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18V7H3v2zm0-6v2h18V3H3z"
       />
+      <path d="M0 0h24v24H0z" fill="none" />
     </svg>
   )
 }
 
-export default TextToolIcon
+export default AlignRightIcon
