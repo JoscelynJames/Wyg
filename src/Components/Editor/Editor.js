@@ -1,8 +1,10 @@
 import React from 'react'
 import './Editor.scss'
+//components
 import { SketchPicker } from 'react-color'
 import Toolbar from '../Toolbar/Toolbar'
 import Editable from '../Editable/Editable'
+import TextMenu from '../TextMenu/TextMenu'
 // tools
 import TextTool from '../Tools/Text/TextTool'
 import ColorPickerTool from '../Tools/ColorPicker/ColorPickerTool'
@@ -52,6 +54,7 @@ class Editor extends React.Component {
             onChange={(color, event) => this.handleChange(color, event)}
           />
         ) : null}
+        <TextMenu />
         <Toolbar>
           <ColorPickerTool
             editor={this.state.editor}

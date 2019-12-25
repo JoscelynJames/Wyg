@@ -1,0 +1,9 @@
+@import '../../variables.scss';
+
+#text-menu {
+  position: absolute;
+  box-shadow: $light-drop-shadow;
+  top: 180px;
+  right: 120px;
+  padding: 10px;
+}
