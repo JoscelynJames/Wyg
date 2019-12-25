@@ -1,6 +1,10 @@
 import React from 'react'
 import './TextMenu.scss'
 import Dropdown from '../Common/Dropdown/Dropdown'
+import BoldIcon from '../Common/Icons/BoldIcon'
+import ItalicIcon from '../Common/Icons/ItalicIcon'
+import UnderlineIcon from '../Common/Icons/UnderlineIcon'
+import StrikethroughIcon from '../Common/Icons/StrikethroughIcon'
 
 const fonts = [
   { value: 'Cursive	' },
@@ -45,8 +49,16 @@ const sizes = [
 function TextMenu() {
   return (
     <div id="text-menu">
-      <Dropdown options={fonts} name="font" />
-      <Dropdown options={sizes} name="size" />
+      <div>
+        <Dropdown options={fonts} name="font" />
+        <Dropdown options={sizes} name="size" />
+      </div>
+      <div className="text-format">
+        <BoldIcon />
+        <ItalicIcon />
+        <UnderlineIcon />
+        <StrikethroughIcon />
+      </div>
     </div>
   )
 }
