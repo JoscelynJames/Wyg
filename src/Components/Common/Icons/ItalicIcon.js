@@ -1,7 +1,7 @@
 import React from 'react'
 
-function TextToolIcon({
-  selectTool,
+function ItalicIcon({
+  handleMouseDown,
   style = { margin: '10px auto' },
   fill = '#000',
   width = '24',
@@ -18,15 +18,11 @@ function TextToolIcon({
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      onMouseDown={e => selectTool(e)}
     >
-      <path fill="none" d="M0 0h24v24H0z" />
-      <path
-        fill={fill}
-        d="M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"
-      />
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path fill={fill} d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4z" />
     </svg>
   )
 }
 
-export default TextToolIcon
+export default ItalicIcon

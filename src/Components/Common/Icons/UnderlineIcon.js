@@ -1,7 +1,7 @@
 import React from 'react'
 
-function TextToolIcon({
-  selectTool,
+function UnderlineIcon({
+  handleMouseDown,
   style = { margin: '10px auto' },
   fill = '#000',
   width = '24',
@@ -18,15 +18,14 @@ function TextToolIcon({
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      onMouseDown={e => selectTool(e)}
     >
-      <path fill="none" d="M0 0h24v24H0z" />
+      <path d="M0 0h24v24H0z" fill="none" />
       <path
         fill={fill}
-        d="M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"
+        d="M12 17c3.31 0 6-2.69 6-6V3h-2.5v8c0 1.93-1.57 3.5-3.5 3.5S8.5 12.93 8.5 11V3H6v8c0 3.31 2.69 6 6 6zm-7 2v2h14v-2H5z"
       />
     </svg>
   )
 }
 
-export default TextToolIcon
+export default UnderlineIcon

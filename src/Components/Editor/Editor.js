@@ -1,8 +1,10 @@
 import React from 'react'
 import './Editor.scss'
+//components
 import { SketchPicker } from 'react-color'
 import Toolbar from '../Toolbar/Toolbar'
 import Editable from '../Editable/Editable'
+import TextMenu from '../TextMenu/TextMenu'
 // tools
 import TextTool from '../Tools/Text/TextTool'
 import ColorPickerTool from '../Tools/ColorPicker/ColorPickerTool'
@@ -13,7 +15,14 @@ class Editor extends React.Component {
     active: false,
     editor: undefined,
     showColorPicker: false,
-    currentColor: '#50E3C2'
+    showTextMenu: false,
+    currentColor: '#50E3C2',
+    activeFormats: {
+      bold: false,
+      italic: false,
+      underline: false,
+      strikeThrough: false
+    }
   }
 
   selectTool(selectedTool, event) {
@@ -24,6 +33,9 @@ class Editor extends React.Component {
       selectedTool,
       ...(selectedTool === 'color' && {
         showColorPicker: !prevState.showColorPicker
+      }),
+      ...(selectedTool === 'text' && {
+        showTextMenu: !prevState.showTextMenu
       })
     }))
   }
@@ -43,13 +55,36 @@ class Editor extends React.Component {
     this.setState({ currentColor: color.hex })
   }
 
+  formatText(property, value, event) {
+    event.preventDefault() // mantain the highlighted text
+    document.execCommand(property, true, value)
+
+    this.setState(prevState => ({
+      ...prevState,
+      activeFormats: {
+        ...prevState.activeFormats,
+        [property]: !prevState.activeFormats[property]
+      }
+    }))
+  }
+
   render() {
     return (
       <div id="editor-container">
         {this.state.showColorPicker ? (
           <SketchPicker
             color={this.state.currentColor}
-            onChange={(color, event) => this.handleChange(color, event)}
+            onChange={(color, e) => this.handleChange(color, e)}
+          />
+        ) : null}
+        {this.state.showTextMenu ? (
+          <TextMenu
+            onChange={(property, value, e) =>
+              this.formatText(property, value, e)
+            }
+            activeFormats={this.state.activeFormats}
+            inactiveFillColor="#000"
+            activeFillColor="#50e3c2"
           />
         ) : null}
         <Toolbar>
