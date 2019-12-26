@@ -14,7 +14,7 @@ import AlignmentTool from '../Tools/Alignment/AlignmentTool'
 class Editor extends React.Component {
   state = {
     selectedTool: 'text',
-    alignTool: 'align-left',
+    currentAlignmentTool: 'justifyLeft',
     active: false,
     editor: undefined,
     showColorPicker: false,
@@ -26,12 +26,22 @@ class Editor extends React.Component {
       italic: false,
       underline: false,
       strikeThrough: false,
-      hiliteColor: false
+      hiliteColor: false,
+      justifyCenter: false,
+      justifyFull: false,
+      justifyRight: false,
+      justifyLeft: false
     }
   }
 
   selectTool(selectedTool, event) {
     event.preventDefault() // mantain the highlighted text
+    if (!selectedTool) return
+
+    if (selectedTool.includes('justify')) {
+      this.formatText(selectedTool, undefined, event)
+    }
+
     this.setState(prevState => ({
       ...prevState,
       selectedTool,
@@ -41,9 +51,9 @@ class Editor extends React.Component {
       ...(selectedTool === 'text' && {
         showTextMenu: !prevState.showTextMenu
       }),
-      ...(selectedTool.includes('align-') && {
+      ...(selectedTool.includes('justify') && {
         showAlignmentMenu: !prevState.showAlignmentMenu,
-        alignTool: selectedTool
+        currentAlignmentTool: selectedTool
       })
     }))
   }
@@ -118,7 +128,8 @@ class Editor extends React.Component {
           />
           <AlignmentTool
             selectTool={(tool, e) => this.selectTool(tool, e)}
-            icon={this.state.alignTool}
+            activeFormats={this.state.activeFormats}
+            currentAlignmentTool={this.state.currentAlignmentTool}
           />
         </Toolbar>
         <Editable
