@@ -6,20 +6,24 @@ import Toolbar from '../Toolbar/Toolbar'
 import Editable from '../Editable/Editable'
 import TextMenu from '../TextMenu/TextMenu'
 import AlignmentMenu from '../AlignmentMenu/AlignmentMenu'
+import ListMenu from '../ListMenu/ListMenu'
 // tools
 import TextTool from '../Tools/Text/TextTool'
 import ColorPickerTool from '../Tools/ColorPicker/ColorPickerTool'
 import AlignmentTool from '../Tools/Alignment/AlignmentTool'
+import ListTool from '../Tools/List/ListTool'
 
 class Editor extends React.Component {
   state = {
     selectedTool: 'text',
     currentAlignmentTool: 'justifyLeft',
+    currentListTool: undefined,
     active: false,
     editor: undefined,
     showColorPicker: false,
     showTextMenu: false,
     showAlignmentMenu: false,
+    showListMenu: false,
     currentColor: '#50E3C2',
     activeFormats: {
       bold: false,
@@ -50,6 +54,9 @@ class Editor extends React.Component {
       }),
       ...(selectedTool === 'text' && {
         showTextMenu: !prevState.showTextMenu
+      }),
+      ...(selectedTool.includes('list') && {
+        showListMenu: !prevState.showListMenu
       }),
       ...(selectedTool.includes('justify') && {
         showAlignmentMenu: !prevState.showAlignmentMenu,
@@ -104,9 +111,7 @@ class Editor extends React.Component {
         ) : null}
         {this.state.showTextMenu ? (
           <TextMenu
-            onChange={(property, value, e) =>
-              this.formatText(property, value, e)
-            }
+            onChange={(property, value, e) => this.formatText(property, value, e)}
             activeFormats={this.state.activeFormats}
             inactiveFillColor="#000"
             activeFillColor="#50e3c2"
@@ -115,6 +120,10 @@ class Editor extends React.Component {
         {this.state.showAlignmentMenu ? (
           <AlignmentMenu selectTool={(tool, e) => this.selectTool(tool, e)} />
         ) : null}
+        {this.state.showListMenu ? (
+          <ListMenu formatText={(property, value, e) => this.formatText(property, value, e)} />
+        ) : null
+        }
         <Toolbar>
           <ColorPickerTool
             editor={this.state.editor}
@@ -131,6 +140,7 @@ class Editor extends React.Component {
             activeFormats={this.state.activeFormats}
             currentAlignmentTool={this.state.currentAlignmentTool}
           />
+          <ListTool selectTool={(tool, e) => this.selectTool(tool, e)} />
         </Toolbar>
         <Editable
           activate={e => this.activateEditor(e)}
