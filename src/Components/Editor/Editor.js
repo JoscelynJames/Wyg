@@ -9,14 +9,17 @@ import AlignmentMenu from '../AlignmentMenu/AlignmentMenu'
 // tools
 import TextTool from '../Tools/Text/TextTool'
 import ColorPickerTool from '../Tools/ColorPicker/ColorPickerTool'
+import AlignmentTool from '../Tools/Alignment/AlignmentTool'
 
 class Editor extends React.Component {
   state = {
     selectedTool: 'text',
+    alignTool: 'align-left',
     active: false,
     editor: undefined,
     showColorPicker: false,
     showTextMenu: false,
+    showAlignmentMenu: false,
     currentColor: '#50E3C2',
     activeFormats: {
       bold: false,
@@ -29,7 +32,6 @@ class Editor extends React.Component {
 
   selectTool(selectedTool, event) {
     event.preventDefault() // mantain the highlighted text
-
     this.setState(prevState => ({
       ...prevState,
       selectedTool,
@@ -38,6 +40,10 @@ class Editor extends React.Component {
       }),
       ...(selectedTool === 'text' && {
         showTextMenu: !prevState.showTextMenu
+      }),
+      ...(selectedTool.includes('align-') && {
+        showAlignmentMenu: !prevState.showAlignmentMenu,
+        alignTool: selectedTool
       })
     }))
   }
@@ -96,7 +102,9 @@ class Editor extends React.Component {
             activeFillColor="#50e3c2"
           />
         ) : null}
-        <AlignmentMenu />
+        {this.state.showAlignmentMenu ? (
+          <AlignmentMenu selectTool={(tool, e) => this.selectTool(tool, e)} />
+        ) : null}
         <Toolbar>
           <ColorPickerTool
             editor={this.state.editor}
@@ -107,6 +115,10 @@ class Editor extends React.Component {
             selectTool={(tool, e) => this.selectTool(tool, e)}
             selectedTool={this.state.selectedTool}
             editor={this.state.editor}
+          />
+          <AlignmentTool
+            selectTool={(tool, e) => this.selectTool(tool, e)}
+            icon={this.state.alignTool}
           />
         </Toolbar>
         <Editable
