@@ -6,8 +6,16 @@ import ItalicIcon from '../Common/Icons/ItalicIcon'
 import UnderlineIcon from '../Common/Icons/UnderlineIcon'
 import StrikethroughIcon from '../Common/Icons/StrikethroughIcon'
 import HighlightTextIcon from '../Common/Icons/HighlightTextIcon'
+import Overlay from '../Common/Overlay/Overlay'
 import fonts from '../../assets/fontFamilies'
 import sizes from '../../assets/fontSizes'
+
+const overlayStyles = {
+  top: '180px',
+  right: '120px',
+  flexDirection: 'column',
+  display: 'flex'
+}
 
 function TextMenu({
   onChange,
@@ -16,7 +24,7 @@ function TextMenu({
   inactiveFillColor
 }) {
   return (
-    <div id="text-menu">
+    <Overlay id="text-menu" style={overlayStyles}>
       <div>
         <Dropdown
           options={fonts}
@@ -80,7 +88,7 @@ function TextMenu({
           />
         </button>
       </div>
-    </div>
+    </Overlay>
   )
 }
 
