@@ -5,6 +5,7 @@ import { SketchPicker } from 'react-color'
 import Toolbar from '../Toolbar/Toolbar'
 import Editable from '../Editable/Editable'
 import TextMenu from '../TextMenu/TextMenu'
+import AlignmentMenu from '../AlignmentMenu/AlignmentMenu'
 // tools
 import TextTool from '../Tools/Text/TextTool'
 import ColorPickerTool from '../Tools/ColorPicker/ColorPickerTool'
@@ -95,6 +96,7 @@ class Editor extends React.Component {
             activeFillColor="#50e3c2"
           />
         ) : null}
+        <AlignmentMenu />
         <Toolbar>
           <ColorPickerTool
             editor={this.state.editor}
