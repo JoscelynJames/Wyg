@@ -1,11 +1,11 @@
 import React from 'react'
 import withTool from '../WithTool/WithTool'
-import ListToolIcon from '../../Common/Icons/ListToolIcon'
+import OrderedListIcon from '../../Common/Icons/OrderedListIcon'
 
-function ListTool({ selectTool, currentListTool }) {
+function ListTool({ selectTool }) {
   return (
     <button type="button" name="list-tool" onClick={e => selectTool('list', e)}>
-      <ListToolIcon />
+      <OrderedListIcon />
     </button>
   )
 }
